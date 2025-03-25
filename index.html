@@ -1,24 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Hello World</title>
-  <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="images/hello-icon-152.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="white"/>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Hello World">
-  <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
-  <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>بطاقة تهنئة | شركة الوسطاء السعوديون</title>
+    <link href="css/custom-rtl.min.css" rel="stylesheet">
+    <style>
+        .center-block { margin: auto; display: block; }
+        .card-selection { margin: 20px; }
+    </style>
 </head>
-<body class="fullscreen">
-  <div class="container">
-    <h1 class="title">Hello World!</h1>
-  </div>
-  <script src="js/main.js"></script>
+<body class="bg-light">
+
+<!-- NAVBAR-->
+<nav class="navbar navbar-expand-lg py-3 navbar bg shadow-sm">
+    <div class="container">
+        <a href="https://saudibrokers.com.sa" class="navbar-brand">
+            <img src="logo.png" width="45" alt="" class="d-inline-block align-middle mr-2">
+            <span class="text-uppercase font-weight-bold" style="color:#614642">شركة الوسطاء السعوديون</span>
+        </a>
+    </div>
+</nav>
+
+<div class="container text-center vertical-center">
+    <br>
+    <!-- Card Selection -->
+    <div class="card-selection">
+      اختر التصميم<br>
+        <label>
+            <input type="radio" name="card" value="card1" checked>  1
+        </label> <span>  </span>
+        <label>
+            <input type="radio" name="card" value="card2">  2
+        </label><span>  </span>
+        <label>
+            <input type="radio" name="card" value="card3">  3
+        </label>
+    </div>
+
+    <input id="name" class="center-block" type='text' placeholder="الاسم" style="width: 324px; text-align: center;" autofocus>
+    <br>
+    <canvas id="canvas" dir="rtl" height="1920px" width="1080px" style="height: 576px; width: 324px;"></canvas>
+    <h5 class="center">
+        <a href="#" id="share1" class="fa fa-apple"> مشاركة البطاقة</a>
+        <br>
+        <a href="#" id="download-btn" class="fa fa-android"> تحميل البطاقة</a>
+    </h5>
+</div>
+
+<script src="generator.js"></script>
+
 </body>
 </html>
