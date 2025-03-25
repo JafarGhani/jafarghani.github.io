@@ -87,9 +87,9 @@ function getCardProperties() {
             backgroundImageSrc: 'eid3.png',     // Card 2 background image
             fontUrl: 'fonts/F-KUFI.ttf',            // Card 2 font (or different if needed)
             fontSize: 45,                        // Card 2 font size
-            textColor: '#101E35',             // Card 2 text color
+            textColor: '#146076',             // Card 2 text color
             //textPositionX:1.7,                  //text X-axis position
-            textPositionY: 1300                    // Card 2 text Y-axis position
+            textPositionY: 920                    // Card 2 text Y-axis position
         };
 
       };
