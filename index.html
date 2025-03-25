@@ -9,11 +9,30 @@
     <title>بطاقة تهنئة | شركة الوسطاء السعوديون</title>
     <link href="css/custom-rtl.min.css" rel="stylesheet">
     <style>
-        .center-block { margin: auto; display: block; }
-        
+        /* Define the font */
+        @font-face {
+            font-family: 'F57Font'; /* You can name this whatever you like */
+            src: url('fonts/F57.ttf') format('truetype');
+        }
+
+        /* Apply the font to the body */
+        body {
+            font-family: 'F57Font', sans-serif; /* Use the defined font */
+        }
+
+        h6 {
+            font-family: 'F57Font', sans-serif; /* Use the defined font */
+
+        }
+
+        .center-block {
+            margin: auto;
+            display: block;
+        }
+
         .card-selection span {
-        margin-right: 10px; /* Adjust the value as needed */
-    }
+            margin-right: 10px; /* Adjust the value as needed */
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -33,25 +52,27 @@
     <!-- Card Selection -->
     <div class="card-selection">
       اختر التصميم<br>
-        <label>
-            <input type="radio" name="card" value="card1" checked>  1
-        </label> <span></span>
-        <label>
-            <input type="radio" name="card" value="card2">  2
-        </label><span></span>
-        <label>
-            <input type="radio" name="card" value="card3">  3
-        </label>
-    </div>
+      <label>
+          <input type="radio" name="card" value="card1" checked> 1
+      </label>
+      <span></span>
+      <label>
+          <input type="radio" name="card" value="card2"> 2
+      </label>
+      <span></span>
+      <label>
+          <input type="radio" name="card" value="card3"> 3
+      </label>
+  </div>
 
     <input id="name" class="center-block" type='text' placeholder="الاسم" style="width: 324px; text-align: center;" autofocus>
     <br>
     <canvas id="canvas" dir="rtl" height="1920px" width="1080px" style="height: 576px; width: 324px;"></canvas>
-    <h5 class="center">
-        <a href="#" id="share1" class="fa fa-apple"> مشاركة البطاقة</a>
+    <h6 class="center">
+        <span class="fa fa-apple" style="color:#A2AAAD"></span><a href="#" id="share1"><span> مشاركة البطاقة</span></a>
         <br>
-        <a href="#" id="download-btn" class="fa fa-android"> تحميل البطاقة</a>
-    </h5>
+        <span class="fa fa-android" style="color:#3DDC84"></span><a href="#" id="download-btn"><span> تحميل البطاقة </span></a>
+    </h6>
 </div>
 
 <script src="generator.js"></script>
