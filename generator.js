@@ -67,29 +67,29 @@ function getCardProperties() {
     if (selectedCard === 'card1') {
         return {
             backgroundImageSrc: 'eid1.png',     // Card 1 background image
-            fontUrl: 'fonts/F-KUFI.ttf',            // Card 1 font
-            fontSize: 45,                        // Card 1 font size
-            textColor: '#E2BB74',               // Card 1 text color
-            textPositionX:1.72,                 //text X-axis position
-            textPositionY: 1390                    // Card 1 text Y-axis position
+            fontUrl: 'fonts/F-DIN.ttf',            // Card 1 font
+            fontSize: 50,                        // Card 1 font size
+            textColor: '#3f72a0',               // Card 1 text color
+            textPositionX:2,                 //text X-axis position
+            textPositionY: 1427                    // Card 1 text Y-axis position
         };
     } else if (selectedCard === 'card2') {
         return {
             backgroundImageSrc: 'eid2.png',     // Card 2 background image
-            fontUrl: 'fonts/F-KUFI.ttf',            // Card 2 font (or different if needed)
-            fontSize: 45,                        // Card 2 font size
-            textColor: '#101E35',             // Card 2 text color
-            textPositionX:1.7,                  //text X-axis position
-            textPositionY: 1300                    // Card 2 text Y-axis position
+            fontUrl: 'fonts/F-DIN.ttf',            // Card 2 font (or different if needed)
+            fontSize: 50,                        // Card 2 font size
+            textColor: '#3f72a0',             // Card 2 text color
+            textPositionX:2,                  //text X-axis position
+            textPositionY: 1447                    // Card 2 text Y-axis position
         };
       } else if (selectedCard ==='card3'){
         return {
-            backgroundImageSrc: 'eid3.png',     // Card 2 background image
-            fontUrl: 'fonts/F-KUFI.ttf',            // Card 2 font (or different if needed)
-            fontSize: 45,                        // Card 2 font size
-            textColor: '#146076',             // Card 2 text color
-            //textPositionX:1.7,                  //text X-axis position
-            textPositionY: 920                    // Card 2 text Y-axis position
+            backgroundImageSrc: 'eid3.png',     // Card 3 background image
+            fontUrl: 'fonts/F-DIN.ttf',            // Card 3 font (or different if needed)
+            fontSize: 50,                        // Card 3 font size
+            textColor: '#3f72a0',             // Card 3 text color
+            textPositionX:2,                  //text X-axis position
+            textPositionY: 1237                   // Card 2 text Y-axis position
         };
 
       };
