@@ -35,7 +35,7 @@ function createGreetingCard(canvasId, nameInputId, downloadBtnId, shareBtnId, ba
     // Download the image if the download button is pressed.
     downloadBtn.addEventListener('click', function() {
         downloadBtn.href = canvas.toDataURL('image/jpeg').replace("image/jpeg", "image/octet-stream");
-        downloadBtn.download = `تهنئة - ${nameInput.value}.png`;
+        downloadBtn.download = `تهنئة - ${nameInput.value}.jpeg`;
     });
 
     // Download the picture if "Enter" key is pressed in the input field
@@ -66,7 +66,7 @@ function getCardProperties() {
     const selectedCard = document.querySelector('input[name="card"]:checked').value;
     if (selectedCard === 'card') {
         return {
-            backgroundImageSrc: 'eid.png',     // Card 1 background image
+            backgroundImageSrc: 'eid.jpg',     // Card 1 background image
             fontUrl: 'fonts/F-DIN.ttf',            // Card 1 font
             fontSize: 50,                        // Card 1 font size
             textColor: '#3f72a0',               // Card 1 text color
