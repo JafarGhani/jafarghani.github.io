@@ -64,7 +64,7 @@ function createGreetingCard(canvasId, nameInputId, downloadBtnId, shareBtnId, ba
 // Function to get the selected card properties
 function getCardProperties() {
     const selectedCard = document.querySelector('input[name="card"]:checked').value;
-    if (selectedCard === 'card') {
+    if (selectedCard === 'card1') {
         return {
             backgroundImageSrc: 'eid.png',     // Card 1 background image
             fontUrl: 'fonts/F-DIN.ttf',            // Card 1 font
