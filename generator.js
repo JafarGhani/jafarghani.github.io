@@ -69,7 +69,7 @@ function getCardProperties() {
             backgroundImageSrc: 'eid.png',     // Card 1 background image
             fontUrl: 'fonts/F-DIN.ttf',            // Card 1 font
             fontSize: 50,                        // Card 1 font size
-            textColor: '#3f72a0',               // Card 1 text color
+            textColor: '#000000',               // Card 1 text color
             textPositionX:2,                 //text X-axis position
             textPositionY: 1180                    // Card 1 text Y-axis position
         };
