@@ -26,6 +26,12 @@ const CARD_TEMPLATES = {
         textPositionY: 1190
     }
 };
+function updateFontSizeUI(size) {
+    const displayElement = document.getElementById('font-size-display');
+    if (displayElement) {
+        displayElement.textContent = `${size}px`;
+    }
+}
 
 // Central execution painting engine
 function drawCard() {
@@ -68,6 +74,25 @@ async function loadFont(fontName) {
     }
 }
 
+const btnIncrease = document.getElementById('font-increase');
+const btnDecrease = document.getElementById('font-decrease');
+
+btnIncrease.addEventListener('click', () => {
+    const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
+    CARD_TEMPLATES[selectedCardKey].fontSize += 1; // Increase tracker by 1
+    updateFontSizeUI(CARD_TEMPLATES[selectedCardKey].fontSize);
+    drawCard();
+});
+
+btnDecrease.addEventListener('click', () => {
+    const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
+    if (CARD_TEMPLATES[selectedCardKey].fontSize > 5) { // Safety limit check
+        CARD_TEMPLATES[selectedCardKey].fontSize -= 1; // Decrease tracker by 1
+        updateFontSizeUI(CARD_TEMPLATES[selectedCardKey].fontSize);
+        drawCard();
+    }
+});
+
 // Function triggered when switching cards — updates color defaults but respects chosen font
 async function handleCardSwitch() {
     const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
@@ -75,6 +100,9 @@ async function handleCardSwitch() {
 
     // Force update the color input field to match the card's theme default
     colorPicker.value = template.defaultColor;
+
+    // Sync size text readout to match the template configuration size
+    updateFontSizeUI(template.fontSize);
 
     // Switch the canvas image template asset source
     currentImage.src = template.backgroundImageSrc;
