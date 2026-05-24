@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="shortcut icon" href="" type="image/x-icon" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>بطاقة تهنئة | عائلة البن عيسى</title>
     <link href="css/custom-rtl.min.css" rel="stylesheet">
     <style>
-        @font-face { font-family: 'F57Font'; src: url('fonts/F57.ttf') format('truetype'); }
-        @font-face { font-family: 'FDIN'; src: url('fonts/F-DIN.ttf') format('truetype'); }
+        @font-face {
+            font-family: 'F57Font';
+            src: url('fonts/F57.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'FDIN';
+            src: url('fonts/F-DIN.ttf') format('truetype');
+        }
 
         body {
             font-family: 'F57Font', sans-serif;
@@ -23,9 +31,10 @@
         .mobile-header {
             background: #fff;
             padding: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
             margin-bottom: 15px;
         }
+
         .navbar-brand img {
             width: 38px;
         }
@@ -36,10 +45,11 @@
             background: #fff;
             padding: 8px;
             border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
             display: block;
             margin: 0 auto 20px auto;
-            max-width: 290px; /* Perfectly sized for smaller modern viewports */
+            max-width: 290px;
+            /* Perfectly sized for smaller modern viewports */
         }
 
         #canvas {
@@ -67,9 +77,10 @@
             gap: 8px;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         .design-selector-scroll::-webkit-scrollbar {
-            display: none; /* Keeps it completely clean */
+            display: none;
+            /* Keeps it completely clean */
         }
 
         .design-selector-scroll label {
@@ -97,10 +108,12 @@
         .mobile-input {
             border-radius: 12px;
             height: 50px;
-            font-size: 16px; /* Prevents auto-zoom trick on iOS Safari */
+            font-size: 16px;
+            /* Prevents auto-zoom trick on iOS Safari */
             border: 1.5px solid #e9ecef;
             background-color: #f8f9fa;
         }
+
         .mobile-input:focus {
             border-color: #614642;
             box-shadow: none;
@@ -123,7 +136,7 @@
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             position: relative;
         }
 
@@ -148,109 +161,138 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-        .btn-share { background-color: #614642; color: #fff; border: none; }
-        .btn-download { background-color: #3DDC84; color: #fff; border: none; }
+
+        .btn-share {
+            background-color: #614642;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-download {
+            background-color: #3DDC84;
+            color: #fff;
+            border: none;
+        }
     </style>
 </head>
+
 <body>
 
-<!-- MOBILE APP HEADER -->
-<div class="mobile-header text-center">
-    <div class="container d-flex align-items-center justify-content-center">
-        <span class="font-weight-bold m-0" style="color:#614642; font-size: 18px;">بطاقة تهنئة عائلة البن عيسى</span>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-12">
-            
-            <!-- STEP 1: Live Card Preview at Top of Viewport -->
-            <div class="canvas-mobile-container text-center">
-                <canvas id="canvas" dir="rtl" height="1600" width="900" style="width: 274px; height: 487px;"></canvas>
-            </div>
-
-            <!-- STEP 2: The Action Form Dashboard -->
-            <div class="mobile-control-panel">
-                
-                <!-- Horizontal Quick Templates Switcher -->
-                <div class="form-group mb-3">
-                    <label class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">اختر تصميم البطاقة:</label>
-                    <div class="design-selector-scroll">
-                        <label>
-                            <input type="radio" name="card" value="card1" checked>
-                            <span>التصميم 1</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="card" value="card2">
-                            <span>التصميم 2</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="card" value="card3">
-                            <span>التصميم 3</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Input Name Field -->
-                <div class="form-group mb-3">
-                    <label for="name" class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">اكتب الاسم:</label>
-                    <input id="name" class="form-control mobile-input text-center" type="text" placeholder="الاسم" autocomplete="off">
-                </div>
-
-                <!-- Typography Options Setup -->
-                <div class="form-group mb-3">
-                    <label for="font-select" class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">نوع الخط:</label>
-                    <select id="font-select" class="form-control mobile-input">
-                        <option value="FDIN" data-url="fonts/F-DIN.ttf">خط 1</option>
-                        <option value="F57Font" data-url="fonts/MadaniArabicRegular.ttf">خط 2 </option>
-                        <option value="ALDHABI" data-url="fonts/aldhabi.ttf">خط 3 </option>
-                        <option value="ANDLSO" data-url="fonts/andlso.ttf">خط 4 </option>
-                        <option value="DUBAI-REGULAR" data-url="fonts/DUBAI-REGULAR.ttf">خط 5 </option>
-                    </select>
-                </div>
-                <!-- Font Size Manual Adjustment Buttons -->
-<div class="form-group mb-3 text-center">
-    <label class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">حجم الخط:</label>
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <button type="button" id="font-decrease" class="btn btn-secondary px-3" style="border-radius: 10px;">-</button>
-        <span id="font-size-display" class="font-weight-bold mx-3" style="min-width: 50px;">50px</span>
-        <button type="button" id="font-increase" class="btn btn-secondary px-3" style="border-radius: 10px;">+</button>
-    </div>
-</div>
-
-                <!-- Live Color Picker Box Configuration -->
-                <div class="form-group mb-4">
-                    <div class="color-row-picker">
-                        <label for="color-picker" class="font-weight-bold m-0 text-muted" style="font-size: 14px;">لون الخط:</label>
-                        <div class="color-picker-circle">
-                            <input type="color" id="color-picker" value="#000000">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Primary Bottom Target Action Triggers -->
-                <div class="row px-2">
-                    <div class="col-6 p-1">
-                        <a href="#" id="share1" class="btn btn-share btn-block btn-mobile-action">
-                            <i class="fa fa-share-alt"></i> مشاركة
-                        </a>
-                    </div>
-                    <div class="col-6 p-1">
-                        <a href="#" id="download-btn" class="btn btn-download btn-block btn-mobile-action">
-                            <i class="fa fa-download"></i> حفظ البطاقة
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            
+    <!-- MOBILE APP HEADER -->
+    <div class="mobile-header text-center">
+        <div class="container d-flex align-items-center justify-content-center">
+            <span class="font-weight-bold m-0" style="color:#614642; font-size: 18px;">بطاقة تهنئة عائلة البن
+                عيسى</span>
         </div>
     </div>
-</div>
 
-<script src="generator.js"></script>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-12">
+
+                <!-- STEP 1: Live Card Preview at Top of Viewport -->
+                <div class="canvas-mobile-container text-center">
+                    <canvas id="canvas" dir="rtl" height="1920" width="1080"
+                        style="width: 274px; height: 487px;"></canvas>
+                </div>
+
+                <!-- STEP 2: The Action Form Dashboard -->
+                <div class="mobile-control-panel">
+
+                    <!-- Horizontal Quick Templates Switcher -->
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">اختر تصميم
+                            البطاقة:</label>
+                        <div class="design-selector-scroll">
+                            <label>
+                                <input type="radio" name="card" value="card1" checked>
+                                <span>التصميم 1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="card" value="card2">
+                                <span>التصميم 2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="card" value="card3">
+                                <span>التصميم 3</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Input Name Field -->
+                    <div class="form-group mb-3">
+                        <label for="name" class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">اكتب
+                            الاسم:</label>
+                        <input id="name" class="form-control mobile-input text-center" type="text" placeholder="الاسم"
+                            autocomplete="off">
+                    </div>
+
+                    <!-- Typography Options Setup -->
+                    <div class="form-group mb-3">
+                        <label for="font-select" class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">نوع
+                            الخط:</label>
+                        <select id="font-select" class="form-control mobile-input">
+                            <option value="FDIN" data-url="fonts/1.otf" selected>خط 1</option>
+                            <option value="F57Font" data-url="fonts/1-m.otf">خط 1 عريض</option>
+                            <option value="ALDHABI" data-url="fonts/2.otf">خط 2</option>
+                            <option value="ANDLSO" data-url="fonts/2-m.otf">خط 2 عريض</option>
+                            <option value="DUBAI-REGULAR" data-url="fonts/3.otf" >خط 3</option>
+                            <option value="DUBAI-REGULAR-d" data-url="fonts/3-m.otf" >خط 3 عريض</option>
+                        </select>
+                    </div>
+                    <!-- Font Size Manual Adjustment Buttons -->
+                    <div class="form-group mb-3 text-center">
+                        <label class="font-weight-bold mb-2 text-muted" style="font-size: 14px;">حجم الخط:</label>
+                        <div class="d-flex justify-content-center align-items-center gap-2"
+                            style="max-width: 220px; margin: 0 auto;">
+                            <button type="button" id="font-decrease" class="btn btn-secondary px-3"
+                                style="border-radius: 10px; font-weight: bold;">-</button>
+
+                            <!-- Input field replacing the static text tag -->
+                            <div class="input-group mx-2" style="width: 80px;">
+                                <input type="number" id="font-size-input" class="form-control text-center p-1"
+                                    value="50" min="1" max="300"
+                                    style="border-radius: 8px; height: 38px; font-weight: bold; font-size: 15px;">
+                            </div>
+
+                            <button type="button" id="font-increase" class="btn btn-secondary px-3"
+                                style="border-radius: 10px; font-weight: bold;">+</button>
+                        </div>
+                    </div>
+                    <!-- Live Color Picker Box Configuration -->
+                    <div class="form-group mb-4">
+                        <div class="color-row-picker">
+                            <label for="color-picker" class="font-weight-bold m-0 text-muted"
+                                style="font-size: 14px;">لون الخط:</label>
+                            <div class="color-picker-circle">
+                                <input type="color" id="color-picker" value="#000000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Primary Bottom Target Action Triggers -->
+                    <div class="row px-2">
+                        <div class="col-6 p-1">
+                            <a href="#" id="share1" class="btn btn-share btn-block btn-mobile-action">
+                                <i class="fa fa-share-alt"></i> مشاركة
+                            </a>
+                        </div>
+                        <div class="col-6 p-1">
+                            <a href="#" id="download-btn" class="btn btn-download btn-block btn-mobile-action">
+                                <i class="fa fa-download"></i> حفظ البطاقة
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="generator.js"></script>
 </body>
+
 </html>
