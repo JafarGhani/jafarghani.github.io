@@ -5,34 +5,33 @@ let canvas, ctx, nameInput, downloadBtn, shareButton, fontSelect, colorPicker;
 // Master structural map configuration defining defaults per card
 const CARD_TEMPLATES = {
     card1: {
-        backgroundImageSrc: 'eid.png',
+        backgroundImageSrc: 'eid1.jpg',
         defaultColor: '#000000',
         fontSize: 50,
         textPositionX: 2,
-        textPositionY: 1190
+        textPositionY: 1405
     },
     card2: {
-        backgroundImageSrc: 'eid2.png',
-        defaultColor: '#3f72a0',
+        backgroundImageSrc: 'eid2.jpg',
+        defaultColor: '#000000',
         fontSize: 50,
         textPositionX: 2,
-        textPositionY: 1190
+        textPositionY: 965
     },
     card3: {
-        backgroundImageSrc: 'eid3.png',
-        defaultColor: '#3f72a0',
+        backgroundImageSrc: 'eid3.jpg',
+        defaultColor: '#f3ecd9',
         fontSize: 50,
         textPositionX: 2,
-        textPositionY: 1190
+        textPositionY: 1220
     }
 };
 function updateFontSizeUI(size) {
-    const displayElement = document.getElementById('font-size-display');
-    if (displayElement) {
-        displayElement.textContent = `${size}px`;
+    const sizeInput = document.getElementById('font-size-input');
+    if (sizeInput) {
+        sizeInput.value = size;
     }
 }
-
 // Central execution painting engine
 function drawCard() {
     if (!currentImage.complete) return; 
@@ -74,25 +73,43 @@ async function loadFont(fontName) {
     }
 }
 
+// Inside initializeApp() function...
+
 const btnIncrease = document.getElementById('font-increase');
 const btnDecrease = document.getElementById('font-decrease');
+const fontSizeInput = document.getElementById('font-size-input');
 
+// 1. Handle "+" Button Click
 btnIncrease.addEventListener('click', () => {
     const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
-    CARD_TEMPLATES[selectedCardKey].fontSize += 1; // Increase tracker by 1
+    CARD_TEMPLATES[selectedCardKey].fontSize += 1;
     updateFontSizeUI(CARD_TEMPLATES[selectedCardKey].fontSize);
     drawCard();
 });
 
+// 2. Handle "-" Button Click
 btnDecrease.addEventListener('click', () => {
     const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
-    if (CARD_TEMPLATES[selectedCardKey].fontSize > 5) { // Safety limit check
-        CARD_TEMPLATES[selectedCardKey].fontSize -= 1; // Decrease tracker by 1
+    if (CARD_TEMPLATES[selectedCardKey].fontSize > 1) { 
+        CARD_TEMPLATES[selectedCardKey].fontSize -= 1;
         updateFontSizeUI(CARD_TEMPLATES[selectedCardKey].fontSize);
         drawCard();
     }
 });
 
+// 3. Handle Typing Directly into the Text Input Field
+fontSizeInput.addEventListener('input', (e) => {
+    const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
+    let parsedSize = parseInt(e.target.value, 10);
+    
+    // Safety handling for empty fields or zeros while typing
+    if (isNaN(parsedSize) || parsedSize < 1) {
+        parsedSize = 1; 
+    }
+
+    CARD_TEMPLATES[selectedCardKey].fontSize = parsedSize;
+    drawCard();
+});
 // Function triggered when switching cards — updates color defaults but respects chosen font
 async function handleCardSwitch() {
     const selectedCardKey = document.querySelector('input[name="card"]:checked').value;
